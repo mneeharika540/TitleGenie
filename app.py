@@ -70,4 +70,5 @@ def generate():
         return jsonify({"error": f"Error generating output: {str(e)}"}), 500
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    pass
+
