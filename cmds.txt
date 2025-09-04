@@ -1,0 +1,5 @@
+To run the code, enter the following commands in your terminal:
+>>  python -m venv venv     (This will create your virtual environment)
+>> venv\Scripts\activate    (To activate the virtual environment)
+>> pip install -r requirements.txt (To install the required packages)
+>> python app.py        (this will run the app, nothing else required)

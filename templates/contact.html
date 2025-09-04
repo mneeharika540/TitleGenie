@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - TitleGenie</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <span class="logo-icon">
+        <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/genie.png" alt="genie"/>
+      </span>
+      <span class="logo-text">TitleGenie</span>
+    </div>
+    <button class="navbar-toggle">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <nav class="nav-links">
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('about') }}">About</a>
+      <a href="{{ url_for('contact') }}" class="active">Contact</a>
+      <a href="{{ url_for('terms') }}" class="terms-link">Terms</a>
+      <a href="{{ url_for('login') }}" class="login-btn" id="loginLink">
+        <span class="login-icon">
+          <img width="20" height="20" src="https://img.icons8.com/fluency-systems-filled/48/user.png" alt="user"/>
+        </span>
+        Login
+      </a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <h1>Contact Us</h1>
+    <p>If you have questions, suggestions, or feedback, feel free to reach us at:</p>
+    <p>Email: <a href="mailto:support@titlegenie.com">support@titlegenie.com</a></p>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>TitleGenie</h3>
+        <p>Your AI-powered YouTube optimization tool</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('contact') }}">Contact</a>
+        <a href="{{ url_for('terms') }}">Terms & Conditions</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 TitleGenie | All Rights Reserved</p>
+    </div>
+  </footer>
+</body>
+</html>

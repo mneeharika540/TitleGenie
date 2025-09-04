@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube Title and Tag Generator</title>
+  <!-- Flask static file reference -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <span class="logo-icon">
+        <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/genie.png" alt="genie" />
+      </span>
+      <span class="logo-text">TitleGenie</span>
+    </div>
+    <button class="navbar-toggle" type="button">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <nav class="nav-links">
+      <!-- ✅ Fixed Flask routes -->
+      <a href="{{ url_for('home') }}" class="active">Home</a>
+      <a href="{{ url_for('about') }}">About</a>
+      <a href="{{ url_for('contact') }}">Contact</a>
+      <a href="{{ url_for('terms') }}" class="terms-link">Terms</a>
+      <a href="{{ url_for('login') }}" class="login-btn" id="loginLink">
+        <span class="login-icon">
+          <img width="20" height="20" src="https://img.icons8.com/fluency-systems-filled/48/user.png" alt="user" />
+        </span>
+        Login
+      </a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-background"></div>
+    <div class="hero-content">
+      <h1>
+        <span class="hero-emoji">✨</span>
+        YouTube Title and Tag Generator
+        <span class="hero-emoji">✨</span>
+      </h1>
+      <p class="hero-subtitle">Catchy video titles in seconds</p>
+
+      <!-- Input -->
+      <div class="search-box">
+        <div class="input-wrapper">
+          <span class="search-icon">
+            <img width="20" height="20" src="https://img.icons8.com/ios-glyphs/30/search--v1.png" alt="search" />
+          </span>
+          <input
+            type="text"
+            id="topicInput"
+            placeholder="Enter your video topic (e.g., cooking tips, gaming review)"
+          />
+        </div>
+        <button class="generate-btn" id="generateBtn" type="button">
+          <span class="btn-icon">
+            <img width="24" height="24" src="https://img.icons8.com/material/24/star--v1.png" alt="star" />
+          </span>
+          Generate
+        </button>
+      </div>
+
+      <!-- Results -->
+      <div class="results-section" id="resultsSection" style="display: none">
+        <div class="results-card">
+          <h3>Generated Title:</h3>
+          <p id="generatedTitle"></p>
+          <h3>Suggested Tags:</h3>
+          <div id="generatedTags"></div>
+          <button class="copy-btn" id="copyBtn" type="button">📋 Copy All</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works">
+    <h2><span class="section-emoji">⚙️</span> How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="icon">🔍</div>
+        <h3>Enter Topic</h3>
+        <p>Type in your video topic or keyword to get started</p>
+      </div>
+      <div class="step">
+        <div class="icon">✨</div>
+        <h3>Generate Title</h3>
+        <p>Get a compelling, SEO-optimized YouTube title</p>
+      </div>
+      <div class="step">
+        <div class="icon">🏷️</div>
+        <h3>Get Tags</h3>
+        <p>Receive relevant hashtags and keywords for better reach</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <h2>Why Choose TitleGenie?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>Creative Titles</h3>
+        <p>Generate catchy, click-worthy titles that stand out</p>
+      </div>
+      <div class="feature-card">
+        <h3>SEO Optimized</h3>
+        <p>Boost your video's discoverability with smart keywords</p>
+      </div>
+      <div class="feature-card">
+        <h3>Instant Results</h3>
+        <p>Get titles and tags in seconds, not hours</p>
+      </div>
+      <div class="feature-card">
+        <h3>Trend-Aware</h3>
+        <p>Stay current with trending topics and keywords</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>TitleGenie</h3>
+        <p>Your AI-powered YouTube optimization tool</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('contact') }}">Contact</a>
+        <a href="{{ url_for('terms') }}">Terms & Conditions</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 TitleGenie | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - TitleGenie</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: #2b3233;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-page-container">
+    <div class="login-header">
+      <h2>
+        <!-- SVG Icon -->
+        Login to TitleGenie
+      </h2>
+      <button class="close-btn" onclick="goBack()">&times;</button>
+    </div>
+    
+    <!-- Form -->
+    <form id="loginForm" style="padding: 30px; display: flex; flex-direction: column; gap: 20px;">
+      <div class="input-group">
+        <input type="email" id="loginEmail" placeholder="Email Address" required />
+      </div>
+      
+      <div class="input-group">
+        <input type="password" id="loginPassword" placeholder="Password" required />
+        <span class="password-toggle" id="togglePassword">👀</span>
+      </div>
+      
+      <div class="login-options" style="display: flex; justify-content: space-between; align-items: center; margin: 10px 0;">
+        <label class="checkbox-container">
+          <input type="checkbox" id="rememberMe">
+          <span class="checkmark"></span>
+          Remember me
+        </label>
+        <a href="#" class="forgot-password">Forgot password?</a>
+      </div>
+      
+      <button type="submit" class="generate-btn login-submit" style="width: 100%; justify-content: center; margin: 10px 0;">
+        <span class="btn-icon">🚀</span>
+        Login
+      </button>
+      
+      <div class="login-divider" style="text-align: center; position: relative; margin: 20px 0;">
+        <span style="background: white; padding: 0 20px; color: #666; font-size: 14px;">or</span>
+      </div>
+      
+      <div class="alternative-login" style="text-align: center; padding: 15px 0;">
+        <p style="color: #666; margin: 0;">New to TitleGenie? <a href="#" id="signupLink">Create an account</a></p>
+      </div>
+    </form>
+    
+    <div class="signup-link" style="text-align: center; padding: 20px 30px; border-top: 1px solid #e1e5e9; background: #f8f9fa;">
+      <p style="color: #666; margin: 0;">Don't have an account? <a href="#" id="signupLink2">Sign up here</a></p>
+    </div>
+    
+    <div class="back-to-home">
+      <a href="{{ url_for('home') }}">← Back to Home</a>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  
+  <script>
+    const loginForm = document.getElementById("loginForm");
+    const togglePassword = document.getElementById("togglePassword");
+
+    // Password toggle
+    togglePassword.onclick = function() {
+      const passwordInput = document.getElementById('loginPassword');
+      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+      togglePassword.textContent = type === 'password' ? '👀' : '🙈';
+    };
+    
+    // Fake login
+    loginForm.onsubmit = function(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+      const rememberMe = document.getElementById('rememberMe').checked;
+
+      if (!email || !password) {
+        alert('⚠️ Please fill in all fields');
+        return;
+      }
+
+      sessionStorage.setItem('isLoggedIn', 'true');
+      sessionStorage.setItem('userEmail', email);
+      if (rememberMe) {
+        localStorage.setItem('rememberUser', email);
+      }
+      window.location.href = "{{ url_for('home') }}";
+    };
+
+    // Back button
+    function goBack() {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = "{{ url_for('home') }}";
+      }
+    }
+  </script>
+</body>
+</html>
