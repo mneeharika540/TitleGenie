@@ -70,8 +70,4 @@ def generate():
         return jsonify({"error": f"Error generating output: {str(e)}"}), 500
 
 if __name__ == "__main__":
-    import os
-    port = int(os.environ.get("PORT", 7860))  # Hugging Face requires port 7860
-    app.run(host="0.0.0.0", port=port)
-
-
+    app.run(debug=True)
