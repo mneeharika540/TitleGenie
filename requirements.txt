@@ -3,6 +3,6 @@ flask-cors
 transformers
 torch
 keybert
-scikit-learn
-sentence-transformers
-gunicorn
+
+
+
